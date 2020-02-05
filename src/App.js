@@ -7,6 +7,11 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 
 export default class App extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = { isLogged: false };
+    }
+
     render() {
 
         const LoginView = () => (
@@ -24,16 +29,10 @@ export default class App extends React.Component {
                         <img src={logo} className="App-logo" alt="logo" />
                         <h1 className="App-title">TODO React App</h1>
                     </header>
-                    <ul>
-                        <li><Link to="/">Login</Link></li>
-                        <li><Link to="/todo">Todo</Link></li>
-                    </ul>
                     <div>
-                        <Route exact path="/" component={LoginView} />
-                        <Route path="/todo" component={TodoAppView} />
+                    <Route component={this.state.isLogged? TodoAppView: LoginView } />
                     </div>
-                    <footer className = "App-header" >
-
+                    <footer className="App-header" >
                     </footer>
                 </div>
             </Router>
@@ -41,3 +40,13 @@ export default class App extends React.Component {
     }
 
 }
+/*
+<ul>
+                        <li><Link to="/">Login</Link></li>
+                        <li><Link to="/todo">Todo</Link></li>
+                    </ul>
+                    <div>
+                        <Route exact path="/" component={LoginView} />
+                        <Route path="/todo" component={TodoAppView} />
+                    </div>
+*/

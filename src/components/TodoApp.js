@@ -35,6 +35,7 @@ export class TodoApp extends React.Component {
                 <main className="layout" >
                     <Paper className="paper">
                         <Avatar className="avatar">
+                            <img src={logo} className="App-logo" alt="logo" />
                         </Avatar>
                         <form onSubmit={this.handleSubmit} className="todo-form">
                             <Typography variant="h3">New To Do</Typography>
@@ -78,9 +79,13 @@ export class TodoApp extends React.Component {
                                 Add #{this.state.items.length + 1}
                             </Button>
                         </form>
-                    
-                    <TodoList todoList={this.state.items} />
+
+                        <TodoList todoList={this.state.items} />
                     </Paper>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
 
                 </main>
                 <CssBaseline />
@@ -123,7 +128,7 @@ export class TodoApp extends React.Component {
             items: prevState.items.concat(newItem),
             text: '',
             priority: '',
-            dueDate: ''
+            dueDate: moment()
         }));
     }
 
