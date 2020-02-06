@@ -35,8 +35,7 @@ export default class App extends React.Component {
         let toRender ;
         console.log(this.state.isLoggedIn + " " + localStorage.getItem("isLoggedIn") );
         if(! isLoggedIn ) {
-            console.log("asdasdasf");
-            console.log(isLoggedIn);
+            console.log("id not Logged");
             toRender = (
                 <div>
                     <ul >
@@ -48,8 +47,7 @@ export default class App extends React.Component {
                 </div>
             );
         } else {
-            console.log("kha");
-            console.log(isLoggedIn);
+            console.log("id logged");            
             toRender = (
                 <div>
                     <ul >
